@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include "arm_2d_cfg.h"
 #include <arm_2d_helper.h>
-#include "arm_2d_scenes.h"
-#include "arm_2d_disp_adapters.h"
+#include <arm_2d_scenes.h>
+#include <arm_2d_disp_adapters.h>
 
 int64_t arm_2d_helper_get_system_timestamp(void)
 {
