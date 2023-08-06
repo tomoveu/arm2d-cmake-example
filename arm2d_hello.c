@@ -7,7 +7,8 @@
 
 int64_t arm_2d_helper_get_system_timestamp(void)
 {
-    return get_system_ticks();
+    /* TODO return get_system_ticks(); */
+    return 0;
 }
 
 void Disp0_DrawBitmap(int16_t x, int16_t y, int16_t width,
@@ -52,7 +53,9 @@ void Disp0_DrawBitmap(int16_t x, int16_t y, int16_t width,
                                     &size);
     GLCD_DrawBitmap(x, y, width, height, bitmap);
 #else
+    /* TODO
     GLCD_DrawBitmap(x, y, width, height, bitmap);
+    */
 #endif
 }
 

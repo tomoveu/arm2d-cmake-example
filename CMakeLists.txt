@@ -3,26 +3,24 @@ cmake_minimum_required(VERSION 3.15)
 
 project(arm2d_example LANGUAGES C)
 
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DARM2D_HELPER")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DARM2D_HELPER -DARM2D_HOST")
 
 include_directories(./)
+include_directories(./math)
+include_directories(./dsp)
+include_directories(./common)
 
-include(ExternalProject)
-
-ExternalProject_Add(arm2dlib
-GIT_REPOSITORY https://github.com/ARM-software/Arm-2D.git
-GIT_TAG main
-UPDATE_DISCONNECTED true
-CONFIGURE_COMMAND ""
-CMAKE_ARGS -DARM2D_HELPER
-BUILD_BYPRODUCTS ${my_arm2dlib}
-)
+add_subdirectory(./arm2d)
 
 add_executable(arm2d_hello "arm2d_hello.c")
 #target_sources(arm2d_hello PRIVATE "arm2d_hello.c")
 target_include_directories(arm2d_hello PRIVATE "${PROJECT_SOURCE_DIR}"
-                            PRIVATE "./lib/core/Include"
-                            PRIVATE "./lib/display/Include"
-                            PRIVATE "./lib/core/Include")
+                            PRIVATE "./arm2d/core/Include"
+                            PRIVATE "./arm2d/display/Include"
+                            PRIVATE "./arm2d/Helper/Include"
+                            PRIVATE "./arm2d/Library/Include"
+                            PRIVATE "./math/"
+                            PRIVATE "./dsp/"
+                            PRIVATE "./common/")
 
-target_link_libraries(arm2d_hello ${my_arm2dlib})
+target_link_libraries(arm2d_hello)
