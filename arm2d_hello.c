@@ -1,9 +1,11 @@
 /* Minimalistic arm2d demo that displays just default scene - loading circle */
 #include <stdio.h>
 #include "arm_2d_cfg.h"
+/*
 #include "arm_2d_helper.h"
 #include "arm_2d_scenes.h"
 #include "arm_2d_disp_adapters.h"
+*/
 
 int64_t arm_2d_helper_get_system_timestamp(void)
 {
@@ -11,7 +13,7 @@ int64_t arm_2d_helper_get_system_timestamp(void)
 }
 
 void Disp0_DrawBitmap(int16_t x, int16_t y, int16_t width,
-                      int16_t height, const uint8_t *bitmap)
+                      int16_t height, const char *bitmap)
 {
 #if __DISP0_CFG_COLOUR_DEPTH__ == 8
     extern
